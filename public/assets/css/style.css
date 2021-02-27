@@ -1,0 +1,245 @@
+
+/* my css code  */
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#header{
+  background: url(https://preview.colorlib.com/theme/appy/images/header-bg.jpg) no-repeat scroll center bottom / cover;
+  background-size: cover;
+  -webkit-background-size: cover;
+  min-height: 500px;
+  position: relative;
+  top: 0;
+}
+#header .overlay{
+  position: absolute;
+  background: linear-gradient(
+    45deg, rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%);
+    opacity: .8;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+#header .overlay .btnlandingpage a:hover{
+  background: linear-gradient(
+    45deg
+    , rgba(72, 44, 191, 1) 0%, rgba(106, 198, 240, 1) 100%) !important;
+    color: #fff !important;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/* .swiper-slide:nth-child(2n) {
+  width: 50%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 30%;
+}
+.swiper-slide-active{
+  width: 60%;
+} */
+
+.social li{
+  width: 38px;
+  height: 38px;
+}
+.quicklinks , .quickcontact ,.social{
+  list-style-type: none;
+}
+.quicklinks li a ,.quickcontact li a{
+  text-decoration: none;
+  color: aliceblue;
+}
+.quicklinks li a:hover,
+.quickcontact li a:hover{
+ color: #6C63FF;
+}
+.copyright span:hover{
+  color: #6C63FF;
+  cursor: pointer;
+}
+.friendwebsite a {
+  color: #6c757d!important;
+  text-decoration: none;
+}
+.friendwebsite a:hover {
+    color: #343638!important;
+    
+
+}
+
+/* #about-us{
+  color: #eceff5;
+  background-color: #5851d0;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%235049bd' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23302c70'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+} */
+.cardimg-slide{
+  width: 220px;
+  height: 220px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-color{
+  color:#6C63FF;
+}
+.firstcity .card-text,
+.secondcity .card-text,
+.thirdcity .card-text{
+  color: #6c757d!important;
+}
+.noto-font{
+  font-family: 'Noto Sans JP', sans-serif
+}
+.opensans-font{
+  font-family: 'Open Sans', sans-serif;
+
+}
+.nameofcity .name-line{
+  width: 100%; 
+  text-align: left; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.nameofcity .name-line span{
+  background:#fff; 
+}
+.titleabout .name-line{
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #e1e1e1; 
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.titlelastnews .name-line{
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #6d6b6b;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.titleabout .name-line span {
+  background-color: #fff;
+  padding: 0 10px;
+  color: #8790af;
+  letter-spacing: 1.5px;
+}
+.titlelastnews .name-line span{
+  background-color: #fff;
+  padding: 0 10px;
+  letter-spacing: 1.5px;
+}
+.about-text{
+  color: #3f3f42;
+  font-size: 32px;
+}
+.space-30{
+  height: 30px;
+}
+.title-new a{
+  color: unset;
+}
+.title-new a:hover{
+  color: #394fa2;
+}
+.card-title-single {
+  font-size: 44px;
+  color: #3f3f42;
+}
+.contentsignlenew{
+  line-height: 1.8;
+}
+.color-secondary{
+  color: #3f3f42;
+}
+@media (max-width: 576px) and (max-width: 7608px) { 
+  .dnone{
+    display: none !important;
+  }
+  .profile{
+    width: 100% !important;
+  }
+  .imageprofile{
+    justify-content: unset !important;
+  }
+  .b-0-sm{
+    border: none !important;
+  }
+  .info{
+    text-align: center;
+  }
+  .about-footer{
+    text-align: center !important;
+  }
+  .p-sm-0-spec{
+    padding: 0 !important;
+  }
+  .p-sm-3-spec{
+    padding: 1.4em !important;
+  }
+  .mt-sm-2-spec{
+    margin-top: 2em !important;
+  }
+  .font-sm-1{
+    font-size: 1.6rem !important;
+  }
+  .swiper-slide{
+    width: unset !important;
+  }
+  #header{
+    min-height: 600px;
+  }
+  .titleabout{
+    width: 100% !important;
+  }
+  .about-text{
+    margin-left: auto !important; 
+    margin-right: auto !important;
+    word-break: break-all !important;
+  }
+  .profilepic{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 86% !important;
+  }
+  .text-sm-center{
+    text-align: center !important;
+  }
+
+}
+
+
+
+/* 
+body{
+    height: 2000px;
+} */

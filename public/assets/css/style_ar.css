@@ -1,0 +1,31 @@
+*{
+    direction: rtl;
+}
+
+.main-font{
+    font-family: 'Cairo', sans-serif !important;
+
+}
+.primary-font{
+    font-family: 'Tajawal', sans-serif;
+
+}
+.titleabout .name-line{
+    border-bottom: 1px solid #6d6b6b;
+}
+.titleabout .name-line span{
+    background-color: #fff;
+    padding: 0 10px;
+    letter-spacing: 1.5px;
+    color: #212529;
+}
+
+@media(max-width:576px){
+    #header{
+        min-height: 720px !important;
+    }
+    .about-text{
+        font-size: 22px !important;
+        word-break: unset !important;
+    }
+}
