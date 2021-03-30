@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', 'FrontController@home');
 Route::get('/{lang}', 'FrontController@setLocal')->name('setLocal');
-
-Auth::routes();
+Route::get('/last/news/{city?}', ['as'=>'news','uses'=>'FrontController@news']);
+Route::get('/news/{id}/{slug}', ['as'=>'single_news','uses'=>'FrontController@single_news']);
 Route::get('/home', 'HomeController@index')->name('home');
 

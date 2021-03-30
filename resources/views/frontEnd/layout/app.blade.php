@@ -16,25 +16,27 @@
                     <li class="nav-item ">
                         <a class="nav-link text-cap" href="./makesug.html">@lang('front.Create order')</a>
                     </li>
+                    @auth('web')
+                        <li class="nav-item">
+                            <a class="nav-link text-cap" href="./account.html">@lang('front.Profile')</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
-                        <a class="nav-link text-cap" href="./account.html">@lang('front.Profile')</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-cap" href="./lastnews.html">@lang('front.Last posts')</a>
+                        <a class="nav-link text-cap" href="{{route('news')}}">@lang('front.Last posts')</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-cap" href="./simwebsite.html">@lang('front.Interesting Sites')</a>
                     </li>
                     <li class="nav-item">
                         @if(auth('web')->check())
-                        <form class="form-inline" action="/login" method="post">
+                        <form class="form-inline" action="/logout" method="post">
                             @csrf
-                            <button type="submit" class="nav-link text-cap">@lang('front.Register')</button>
+                            <button type="submit" class="nav-link text-cap">@lang('front.Logout')</button>
                         </form>
                         @else
                             <div class="form-inline">
-                                <a class="nav-link text-cap" href="./login.html">@lang('front.Register')</a>
-                                <a class="nav-link text-cap" href="./login.html">@lang('front.Login')</a>
+                                <a class="nav-link text-cap" href="{{route('register')}}">@lang('front.Register')</a>
+                                <a class="nav-link text-cap" href="{{route('login')}}">@lang('front.Login')</a>
                             </div>
                         @endif
                     </li>
@@ -42,7 +44,7 @@
                         <div class="dropdown">
                             <button class="btn  dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                {{strtoupper(app()->getLocale())}}
+                                {{strtolower(app()->getLocale()) == 'ar'? trans('front.Arabic'): trans('front.English')}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
                                 <a class="dropdown-item" href="{{route('setLocal',['lang'=>'ar'])}}">@lang('front.Arabic')</a>

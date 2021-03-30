@@ -73,8 +73,8 @@
                                 <img src="{{asset('/storage/images/'.$p->image)}}" class="w-100 h-100">
                             </div>
                             <div class="card-body px-0 pt-1 {{app()->getLocale() == 'ar'?'text-right':''}}">
-                                <h5 class="card-title font-weight-bold title-new"><a href="#">{{$p->title}}</a></h5>
-                                <p class="small">{{$p->description}}</p>
+                                <h5 class="card-title font-weight-bold title-new"><a href="{{route('single_news',['id'=>$p->id,'slug'=> \Str::slug($p->title)])}}">{{$p->title}}</a></h5>
+                                <p class="small">{!! \Str::limit($p->description,85) !!}</p>
                                 <div class="d-flex align-items-baseline">
                                     <div class="icon d-flex align-items-baseline">
                                         <div class="icon-img" style="width: 18px;height: 18px;"><img src="{{asset('/assets/img/clock.svg')}}" class="w-100 h-100" alt=""> </div>
