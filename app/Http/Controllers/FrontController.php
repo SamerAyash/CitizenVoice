@@ -49,12 +49,7 @@ class FrontController extends Controller
         $posts= collect();
         if ($request->city){
             $posts= News::whereHas('city',function ($q) use ($request){
-                if (app()->getLocale() == 'ar'){
-                    return $q->where('name_ar',$request->city);
-                }
-                else{
-                    return $q->where('name_en',$request->city);
-                }
+                $q->where('name_en',$request->city);
             })
                 ->orderByDesc('created_at')
                 ;

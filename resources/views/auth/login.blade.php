@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input rounded-pill" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="remember">
+                            <label class="form-check-label mx-4" for="remember">
                                 {{ __('front.Remember Me') }}
                             </label>
                         </div>

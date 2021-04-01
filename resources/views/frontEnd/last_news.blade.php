@@ -9,9 +9,9 @@
                 <div class="mt-4 col-md-3">
                     <select onchange="select_area(this)" class="custom-select">
                         <option selected disabled>@lang('front.select area')</option>
-                        <option value="" >@lang('front.all area')</option>
+                        <option value="#">@lang('front.all area')</option>
                         @foreach($cities as $city)
-                        <option value="{{app()->getLocale() == 'ar'? $city->name_ar: $city->name_en}}">
+                        <option value="{{$city->name_en}}" {{$city->name_en == request('city')?'selected':''}} >
                             {{app()->getLocale() == 'ar'? $city->name_ar: $city->name_en}}
                         </option>
                         @endforeach
