@@ -60,5 +60,8 @@ class FrontController extends Controller
         return view('frontEnd.last_news',compact('posts','cities'));
     }
 
+    public function interesting_sites(){
+        return view('frontEnd.interesting_sites');
+    }
 
 }

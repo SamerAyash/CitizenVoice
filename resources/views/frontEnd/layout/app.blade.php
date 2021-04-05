@@ -13,25 +13,26 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        <a class="nav-link text-cap" href="./makesug.html">@lang('front.Create order')</a>
-                    </li>
                     @auth('web')
+                    <li class="nav-item ">
+                        <a class="nav-link text-cap" href="{{route('create_order')}}">@lang('front.Create order')</a>
+                    </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-cap" href="./account.html">@lang('front.Profile')</a>
+                            <a class="nav-link text-cap" href="{{route('profile')}}">@lang('front.Profile')</a>
                         </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link text-cap" href="{{route('news')}}">@lang('front.Last posts')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-cap" href="./simwebsite.html">@lang('front.Interesting Sites')</a>
+                        <a class="nav-link text-cap" href="{{route('interesting_sites')}}">@lang('front.Interesting Sites')</a>
                     </li>
                     <li class="nav-item">
                         @if(auth('web')->check())
                         <form class="form-inline" action="/logout" method="post">
                             @csrf
-                            <button type="submit" class="nav-link text-cap">@lang('front.Logout')</button>
+                            <button type="submit" style=" border:none;background: none;" class="nav-link text-cap">@lang('front.Logout')</button>
                         </form>
                         @else
                             <div class="form-inline">

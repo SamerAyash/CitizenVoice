@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/', 'FrontController@home');
+Route::get('/profile', ['as'=>'profile','uses'=>'UserController@index']);
+Route::get('/order/create', ['as'=>'create_order','uses'=>'UserController@create_order']);
+
 Route::get('/{lang}', 'FrontController@setLocal')->name('setLocal');
 Route::get('/last/news/{city?}', ['as'=>'news','uses'=>'FrontController@news']);
 Route::get('/news/{id}/{slug}', ['as'=>'single_news','uses'=>'FrontController@single_news']);
+Route::get('/interesting/sites', ['as'=>'interesting_sites','uses'=>'FrontController@interesting_sites']);
 Route::get('/home', 'HomeController@index')->name('home');
 

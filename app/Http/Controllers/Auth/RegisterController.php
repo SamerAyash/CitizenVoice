@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\City;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -49,10 +51,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $city_ids= City::all()->pluck('id');
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'dob' => ['required', 'date'],
+            //'mobile'=>'required|numeric|digits:10|regex:/(05[96])[0-9]/|unique:users,phone',
+            'mobile'=>'required|numeric|digits:10|regex:/(05[96])[0-9]/',
+            'city'=>['required', Rule::in($city_ids),],
+            'id_number' => ['required', 'numeric', 'digits:10', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -65,9 +74,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'name' => $data['first_name'].' '.$data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'city_id'=> $data['city'],
+            'birthdate'=> $data['dob'],
+            'id_number'=>  $data['id_number'],
+            'phone'=>  $data['mobile'],
         ]);
     }
 }

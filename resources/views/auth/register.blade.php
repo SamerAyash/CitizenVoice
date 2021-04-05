@@ -89,12 +89,12 @@
             </div>
             <div class="col wow bounceInRight center" style="visibility: visible; animation-name: bounceInRight;">
                 <div class="form bg-light p-3 shadow rounded">
-                    <h2 class="text-center">Sign up</h2>
+                    <h2 class="text-center">{{__('front.Sign up')}}</h2>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input id="first_name" placeholder="First Name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" placeholder="{{__('front.First name')}}" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}"  autocomplete="first_name" autofocus>
                                 @error('first_name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 form-group">
-                                <input id="last_name" placeholder="Last Name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                                <input id="last_name" placeholder="{{__('front.Last name')}}" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}"  autocomplete="last_name" autofocus>
                                 @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input id="id_number" placeholder="ID Number" type="number" class="form-control @error('id_number') is-invalid @enderror" name="id_number" value="{{ old('id_number') }}" required autocomplete="id_number" autofocus>
+                                <input id="id_number" placeholder="{{__('front.ID Number')}}" type="number" class="form-control @error('id_number') is-invalid @enderror" name="id_number" value="{{ old('id_number') }}"  autocomplete="id_number" autofocus>
                                 @error('id_number')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -120,7 +120,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 form-group">
-                                <input id="mobile" placeholder="Mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
+                                <input id="mobile" placeholder="{{__('front.Mobile')}}" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}"  autocomplete="mobile" autofocus>
                                 @error('mobile')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -129,36 +129,53 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input id="dob" placeholder="DOB" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
+                            <div class="col-md-6 form-group {{app()->getLocale() == 'ar'? 'text-right': ''}}">
+                                <label class="" for="dob" >{{__('front.DOB')}}</label>
+                                <input id="dob" placeholder="{{__('front.DOB')}}" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}"  autocomplete="dob" autofocus>
                                 @error('dob')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-
                             <div class="form-group col-md-6">
-                                <select  class="form-control">
+                                <label></label>
+                                <select name="city" class="form-control">
                                     <option selected disabled>@lang('front.select area')</option>
                                     @foreach(\App\City::all() as $city)
-                                        <option value="{{$city->id}}">
+                                        <option value="{{$city->id}}" {{old('city') == $city->id? 'selected' :''}}>
                                             {{app()->getLocale() == 'ar'? $city->name_ar: $city->name_en}}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
+                            @error('city')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="{{__('front.Email')}}"  autocomplete="false" autofocus>
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email addree">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+                            <input type="password" name="password" class="form-control @error('email') is-invalid @enderror" autocomplete=false placeholder="{{__('front.Password')}}">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary">Signup</button>
+                            <button type="submit" class="btn btn-primary">{{__('front.Sign up')}}</button>
                             <div class="mt-3">
-                                <a href="./login.html">already have an account!</a>
+                                <a href="{{route('login')}}">{{__('front.I already have an account')}}</a>
                             </div>
                         </div>
                     </form>
