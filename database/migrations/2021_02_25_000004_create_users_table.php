@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('id_number')->unique();
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->date('birthdate');
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');

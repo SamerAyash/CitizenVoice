@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([CitySeeder::class,CategorySeeder::class,OrderStatusSeeder::class,AdminSeeder::class]);
+
         foreach (\App\City::all() as $city){
             factory(\App\User::class,15)->create([
                 'city_id'=> $city->id,

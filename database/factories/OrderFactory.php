@@ -15,5 +15,6 @@ $factory->define(Order::class, function (Faker $faker) {
         'status_id'=> \App\OrderStatus::all()->random()->id,
         'category_id'=> \App\Category::all()->random()->id,
         'admin_id'=> \App\Admin::where('type',1)->get()->random()->id,
+        'user_id'=> \App\User::all()->random()->id,
     ];
 });
