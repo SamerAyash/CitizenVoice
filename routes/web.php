@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'FrontController@home');
 Route::get('/profile', ['as'=>'profile','uses'=>'UserController@index']);
 Route::get('/order/create', ['as'=>'create_order','uses'=>'UserController@create_order']);
+Route::post('/order/save', ['as'=>'store_order','uses'=>'UserController@store_order']);
 
 Route::get('/{lang}', 'FrontController@setLocal')->name('setLocal');
 Route::get('/last/news/{city?}', ['as'=>'news','uses'=>'FrontController@news']);

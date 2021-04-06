@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable=[];
+    protected $guarded=[];
     public function status(){
-        return $this->belongsTo(OrderStatus::class);
+        return $this->belongsTo(OrderStatus::class,'status_id');
     }
 
     public function city(){
@@ -23,6 +25,6 @@ class Order extends Model
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 }

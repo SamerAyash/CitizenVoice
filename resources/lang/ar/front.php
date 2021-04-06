@@ -55,8 +55,11 @@ return [
     'Attach an attachment (file or photo)'=>'إرفاق مرفق (ملف أو صورة)',
     'Category'=>'الفئة',
     'Write your order here'=>'اكتب طلبك هنا',
-    ''=>'',
-    ''=>'',
+    'The request has been submitted successfully'=>'تم تقديم الطلب بنجاح',
+    'Action'=>'الأجراءات',
+    'Show'=>'عرض',
+    'Delete'=>'حذف',
+    'Attached file'=>'الملف المرفق',
     ''=>'',
 ]
 ?>

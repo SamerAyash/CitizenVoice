@@ -12,12 +12,13 @@
                 </div>
                 <div class="col-md-6 col-sm-12 wow bounceInRight" style="visibility: visible; animation-name: bounceInRight;">
                     <div class="form bg-light p-5 p-sm-3-spec shadow rounded">
-                        <form>
+                        <form action="{{route('store_order')}}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('front.Title')}}"></textarea>
+                                <textarea class="form-control" name="title" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('front.Title')}}">{{old('title')}}</textarea>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('front.Subject')}}"></textarea>
+                                <textarea class="form-control" name="subject"  id="exampleFormControlTextarea1" rows="3" placeholder="{{__('front.Subject')}}">{{old('subject')}}</textarea>
                             </div>
                             <div class="form-group">
                                 <select name="city" class="form-control">
@@ -41,10 +42,10 @@
                             </div>
                             <div class="form-group">
                                 <label class="h6">{{__('front.Attach an attachment (file or photo)')}}</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-primary w-25">Save</button>
+                                <button type="submit" class="btn btn-primary w-25">Save</button>
                             </div>
                         </form>
                     </div>

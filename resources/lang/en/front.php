@@ -55,6 +55,12 @@ return [
     'Attach an attachment (file or photo)'=>'Attach an attachment (file or photo)',
     'Category'=>'Category',
     'Write your order here'=>'Write your order here',
+    'The request has been submitted successfully'=>'The request has been submitted successfully',
+    'Show'=>'Show',
+    'Action'=>'Action',
+    'Attached file'=>'Attached file',
+    'Delete'=>'Delete',
+    ''=>'',
     ''=>'',
 ]
 ?>

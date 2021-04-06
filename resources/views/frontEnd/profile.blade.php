@@ -70,6 +70,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-8 mt-sm-2-spec px-3  p-sm-0-spec">
                         <div class="bg-white rounded-lg shadow">
                         <div class="status pt-5">
@@ -87,54 +88,35 @@
                                         <th scope="col">{{__('front.City')}}</th>
                                         <th scope="col">{{__('front.Status')}}</th>
                                         <th scope="col">{{__('front.Feedback')}}</th>
+                                        <th scope="col">{{__('front.Attached file')}}</th>
+                                        <th scope="col">{{__('front.Action')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    @foreach(auth('web')->user()->order as $order)
+                                    <tr class="container">
                                         <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto Thornton Subject</td>
-                                        <td>20,March2020</td>
-                                        <td>Tokyo</td>
-                                        <td>Canceled</td>
-                                        <td>waiting feedback</td>
+                                        <td>{{\Str::limit($order->title,50)}}</td>
+                                        <td>{{\Str::limit($order->description,50)}}</td>
+                                        <td>{{$order->created_at->format('d M Y')}}</td>
+                                        <td>{{$order->city && app()->getLocale() == 'ar'? $order->city->name_ar : $order->city->name_en}}</td>
+                                        <td>{{$order->status && app()->getLocale() == 'ar'? $order->status->name_ar : $order->status->name_en}}</td>
+                                        <td>{{\Str::limit($order->feedback,50)}}</td>
+                                        <td>
+                                            @if($order->file)
+                                                <a href="{{$order->file}}" target="_blank">{{__('front.Attached file')}}</a>
+                                            @endif
+                                        </td>
+                                        <td class="row">
+                                            <div class="col">
+                                                <button class="btn btn-success">{{__('front.Show')}}</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-danger">{{__('front.Delete')}}</button>
+                                            </div>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Otto Thornton Subject</td>
-                                        <td>20,March2020</td>
-                                        <td>Tokyo</td>
-                                        <td>Canceled</td>
-                                        <td>waiting feedback</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>Otto Thornton Subject</td>
-                                        <td>20,March2020</td>
-                                        <td>Tokyo</td>
-                                        <td>Canceled</td>
-                                        <td>waiting feedback</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-                                        <td>Otto Thornton Subject</td>
-                                        <td>20,March2020</td>
-                                        <td>Tokyo</td>
-                                        <td>Canceled</td>
-                                        <td>waiting feedback</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-                                        <td>Otto Thornton Subject</td>
-                                        <td>20,March2020</td>
-                                        <td>Tokyo</td>
-                                        <td>Canceled</td>
-                                        <td>waiting feedback</td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

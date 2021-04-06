@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\City;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -12,7 +13,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('web');
+        $this->middleware('auth:web');
     }
 
     /**
@@ -36,13 +37,14 @@ class UserController extends Controller
     }
 
     public function store_order(Request $request){
+
         $this->validate($request,[
             'title'=>['required','string'],
             'subject'=>['required','string'],
             'city'=>['required','numeric',Rule::in(City::all()->pluck('id'))],
             'category'=>['required','numeric',Rule::in(Category::all()->pluck('id'))],
         ]);
-
+        $filename= null;
         if ($request->hasFile('file')){
 
             $uploadedFile = $request->file('file');
@@ -54,7 +56,17 @@ class UserController extends Controller
             );
         }
 
+        Order::create([
+            'title'=> $request->title,
+            'description'=> $request->subject,
+            'city_id'=> $request->city,
+            'category_id'=> $request->category,
+            'file'=>$filename,
+            'status_id'=> 1,
+            'user_id'=> auth('web')->id(),
+        ]);
 
+        return redirect()->route('profile')->with(['success'=>trans('front.The request has been submitted successfully')]);
     }
 
     /**
