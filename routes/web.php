@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'FrontController@home');
 Route::get('/profile', ['as'=>'profile','uses'=>'UserController@index']);
+Route::get('/profile/edit', ['as'=>'edit_user','uses'=>'UserController@edit_user']);
+Route::put('/profile/update', ['as'=>'update_user','uses'=>'UserController@update_user']);
 Route::get('/order/create', ['as'=>'create_order','uses'=>'UserController@create_order']);
+Route::get('/order/{id}', ['as'=>'show_order','uses'=>'UserController@show_order']);
+Route::delete('/order/{id}', ['as'=>'delete_order','uses'=>'UserController@delete_order']);
 Route::post('/order/save', ['as'=>'store_order','uses'=>'UserController@store_order']);
 
 Route::get('/{lang}', 'FrontController@setLocal')->name('setLocal');

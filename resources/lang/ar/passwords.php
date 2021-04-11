@@ -14,9 +14,9 @@ return [
     */
 
     'reset' => 'تمت إعادة تعيين كلمة المرور!',
-    'sent' => 'We have emailed your password reset link!',
+    'sent' => 'لقد أرسلنا عبر البريد الإلكتروني رابط إعادة كلمة المرور الخاصة بك!',
     'throttled' => 'الرجاء انتظر قبل إعادة المحاولة',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that email address.",
+    'token' => 'رمز إعادة تعيين كلمة المرور هذا غير صالح.',
+    'user' => "لا يمكننا العثور على مستخدم بعنوان البريد الإلكتروني هذا.",
 
 ];

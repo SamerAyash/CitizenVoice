@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12 wow bounceInRight" style="visibility: visible; animation-name: bounceInRight;">
                     <div class="form bg-light p-5 p-sm-3-spec shadow rounded">
-                        <form action="{{route('store_order')}}" method="POST">
+                        <form action="{{route('store_order')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <textarea class="form-control" name="title" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('front.Title')}}">{{old('title')}}</textarea>

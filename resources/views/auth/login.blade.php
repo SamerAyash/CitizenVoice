@@ -6,8 +6,8 @@
     <div class="container mt-5">
         <div class="row mt-4">
             <div class="col wow rollIn dnone" style="visibility: visible; animation-delay: 0.5s; animation-name: rollIn;">
-                <div>
-                    <h4 class="my-3">login now to make suggestions...</h4>
+                <div class="{{app()->getLocale() == 'ar'? 'text-right': ''}}">
+                    <h4 class="my-3">{{__('front.login now to make suggestions')}}...</h4>
                     <img src="{{asset('assets/img/auth.svg')}}" class="w-100 h-100">
                 </div>
             </div>

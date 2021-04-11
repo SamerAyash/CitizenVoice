@@ -9,7 +9,7 @@ $factory->define(Order::class, function (Faker $faker) {
     return [
         'title'=> $faker->text,
         'description'=> $faker->paragraph,
-        'file'=> '/storage/images/'.$faker->image('public/storage/images',640,480, null, false),
+        'file'=> '/storage/files/'.$faker->image('public/storage/images',640,480, null, false),
         'feedback'=> $faker->randomElement([$faker->text,null]),
         'city_id'=> \App\City::all()->random()->id,
         'status_id'=> \App\OrderStatus::all()->random()->id,
