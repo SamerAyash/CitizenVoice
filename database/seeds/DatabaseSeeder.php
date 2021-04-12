@@ -23,6 +23,26 @@ class DatabaseSeeder extends Seeder
             'city_id'=> 1,
         ]);
 
+        \App\Admin::create([
+            'name'=> 'محمود',
+            'id_number'=> 2223335558,
+            'email' => 'moh@gmail.com',
+            'phone'=> '0598888888',
+            'type'=> 1,
+            'password'=> \Illuminate\Support\Facades\Hash::make('12345678'),
+            'city_id'=> 1,
+        ]);
+
+        \App\Admin::create([
+            'name'=> 'محمود',
+            'id_number'=> 2223335588,
+            'email' => 'moh2@gmail.com',
+            'phone'=> '0598888889',
+            'type'=> 2,
+            'password'=> \Illuminate\Support\Facades\Hash::make('12345678'),
+            'city_id'=> 1,
+        ]);
+
         foreach (\App\City::all() as $city){
             factory(\App\User::class,15)->create([
                 'city_id'=> $city->id,
