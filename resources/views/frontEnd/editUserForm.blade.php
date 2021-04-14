@@ -12,7 +12,7 @@
                 @method('PUT')
                 <div class="col-md-3 py-3 opensans-font profilepic">
                     <div class="img" style="width: 220px;height: 225px;">
-                        <img src="{{asset(auth('web')->user()->image? 'storage/'.auth('web')->user()->image: '/assets/img/profile/default_image.jpg')}}" alt="" class="w-100 h-100 rounded-circle">
+                        <img src="{{asset($user->image? 'storage/'.$user->image: '/assets/img/profile/default_image.jpg')}}" alt="" class="w-100 h-100 rounded-circle">
                     </div>
                     <p class="pt-3 text-sm-center">Upload Your photo</p>
                     <div class="form-group">

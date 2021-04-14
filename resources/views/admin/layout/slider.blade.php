@@ -21,7 +21,7 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{aroute('home')}}" class="nav-link {{\Request::route()->getName() == 'admin.home'?'active':''}}">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         الرئيسية
@@ -31,14 +31,14 @@
 
             <li class="nav-header">المستخدمين</li>
             <li class="nav-item">
-                <a href="{{aroute('home')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                <a href="{{route('users.index')}}" class="nav-link {{\Request::route()->getName() == 'users.index'?'active':''}}">
+                    <i class="fas fa-users"></i>
                     <p>جدول المستخدمين</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{aroute('home')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                <a href="{{route('blockedUsers')}}" class="nav-link {{\Request::route()->getName() == 'blockedUsers'?'active':''}}">
+                    <i class="fas fa-lock"></i>
                     <p>المستخدمين المحظورين</p>
                 </a>
             </li>

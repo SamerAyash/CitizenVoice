@@ -9,9 +9,9 @@
                 <!-- state of orders  -->
                 <div class="profilepic mx-5">
                     <div class="rounded-circle overflow-auto" style="width: 200px;height: 200px;">
-                        <img src="{{asset(auth('web')->user()->image? 'storage/'.auth('web')->user()->image: '/assets/img/profile/default_image.jpg')}}" alt="" class="w-100 h-100">
+                        <img src="{{asset($user->image? 'storage/'.$user->image: '/assets/img/profile/default_image.jpg')}}" alt="" class="w-100 h-100">
                     </div>
-                    <h3 class="my-4">{{auth('web')->user()->name}}</h3>
+                    <h3 class="my-4">{{$user->name}}</h3>
                 </div>
                 <div class="container">
 
@@ -27,7 +27,7 @@
 
                                 <div style="line-height: .8;">
                                     <p class="text-muted">{{__('front.Name')}}</p>
-                                    <p>{{auth('web')->user()->name}}</p>
+                                    <p>{{$user->name}}</p>
                                 </div>
 
                             </div>
@@ -35,7 +35,7 @@
 
                                 <div style="line-height: .8">
                                     <p class="text-muted">{{__('front.Email')}}</p>
-                                    <p>{{auth('web')->user()->email}}</p>
+                                    <p>{{$user->email}}</p>
                                 </div>
 
                             </div>
@@ -43,7 +43,7 @@
 
                                 <div style="line-height: .8;">
                                     <p class="text-muted">{{__('front.ID Number')}}</p>
-                                    <p>{{auth('web')->user()->id_number}}</p>
+                                    <p>{{$user->id_number}}</p>
                                 </div>
 
                             </div>
@@ -51,7 +51,7 @@
 
                                 <div style="line-height: .8;">
                                     <p class="text-muted">{{__('front.Mobile')}}</p>
-                                    <p>{{auth('web')->user()->phone}}</p>
+                                    <p>{{$user->phone}}</p>
                                 </div>
 
                             </div>
@@ -59,7 +59,7 @@
 
                                 <div style="line-height: .8">
                                     <p class="text-muted">{{__('front.DOB')}}</p>
-                                    <p>{{auth('web')->user()->birthdate}}</p>
+                                    <p>{{$user->birthdate}}</p>
                                 </div>
 
                             </div>
@@ -67,7 +67,7 @@
 
                                 <div style="line-height: .8;">
                                     <p class="text-muted">Address</p>
-                                    <p>{{$local ? auth('web')->user()->city->name_ar : auth('web')->user()->city->name_en}}</p>
+                                    <p>{{$local ? $user->city->name_ar : $user->city->name_en}}</p>
                                 </div>
 
                             </div>
@@ -97,7 +97,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach(auth('web')->user()->order as $order)
+                                    @foreach($user->order as $order)
                                     <tr class="container">
                                         <th scope="row">{{$loop->iteration}}</th>
                                         <td>{{\Str::limit($order->title,20)}}</td>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link  rel="stylesheet" href="assets/css/animate.min.css">
+    <link  rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>login</title>
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <section id='navbar' class="bg-light sticky-top">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="./index.html">Municipality</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav ">
+                <li class="nav-item ">
+                  <a class="nav-link text-cap" href="./makesug.html">Make a complaint </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-cap" href="./account.html">My account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-cap" href="./simwebsite.html">Simple website</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-cap" href="./lastnews.html">last news</a>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown">
+                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      language
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                      <a class="dropdown-item" href="./Arabic/index_ar.html">Arabic</a>
+                      <a class="dropdown-item" href="#">English</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item current">
+                  <form class="form-inline">
+                    <a class="nav-link text-cap active" href="./login.html">login</a>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
+        </div>
+      </section>
+      <!-- navbar -->
+
+      <!-- contant -->
+        <section id="loginform" class="p-4 h-100">
+              <div class="container mt-5">
+                <div class="row mt-4">
+                  <div class="col wow rollIn dnone" style="visibility: visible; animation-delay: 0.5s; animation-name: rollIn;">
+                    <div>
+                      <h4 class="my-3">login now to make suggestions...</h4>
+                      <img src="assets/img/auth.svg" class="w-100 h-100">
+                    </div>
+                  </div>
+                  <div class="col wow bounceInRight center" style="visibility: visible; animation-name: bounceInRight;">
+                    <div class="form bg-light p-3 shadow rounded">
+                      <h2 class="text-center">Login</h2>
+                      <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control rounded-pill" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control rounded-pill" id="exampleInputPassword1">
+                          </div>
+                          <div>
+                            <button type="submit" class="btn btn-primary mb-4">login</button>
+                            <div>
+                              <a class="mt-3" href="./signup.html">dont have an account!</a><br>
+                              <a class="mt-3" href="./forgetpassword.html">forget password</a><br>
+                              <a class="mt-3" href="./resetpassword.html">reset password</a>
+                            </div>
+                          </div>
+                        </form>
+                  </div> 
+                  </div>
+                </div>
+              </div>
+        </section>
+      <!-- contant -->
+      <script src="./assets/js/jquery.min.js"></script>
+      <script src="./assets/js/bootstrap.min.js"></script>
+      <script src="./assets/js/wow.min.js"></script>
+      <script>
+      new WOW().init();
+      </script>
+  </body>
+</html>

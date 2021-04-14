@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 @include('admin.layout.header')
-
+@stack('style')
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -13,7 +12,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="{{aroute('home')}}" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -137,10 +136,10 @@
         </a>
         @includeIf('admin.layout.slider')
     </aside>
-
     <!-- Content Wrapper. Contains page content -->
 @yield('content')
 
 @include('admin.layout.footer')
+@stack('js')
 </body>
 </html>

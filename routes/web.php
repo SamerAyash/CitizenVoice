@@ -42,6 +42,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     Route::group(['middleware'=>'admin:admin'],function (){
         /// First admin word means middleware class and second admin word means guard type
         Route::view('/dashboard', 'admin.dashboard')->name('admin.home');
+        Route::resource('/users','UserController');
+        Route::put('/users/block/{id}',['as'=>'users.block','uses'=>'UserController@block']);
+        Route::put('/users/unblock/{id}',['as'=>'users.unblock','uses'=>'UserController@unblock']);
+        Route::get('blocked/users',['as'=>'blockedUsers','uses'=>'UserController@blockedUsers']);
 
     });
 

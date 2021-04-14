@@ -25,7 +25,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('frontEnd.profile');
+        $user= auth('web')->user();
+        return view('frontEnd.profile',compact('user'));
     }
 
     /**
