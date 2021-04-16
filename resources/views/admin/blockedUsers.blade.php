@@ -72,10 +72,11 @@
                                         @method('put')
                                         <button type="submit" class="btn btn-warning mx-1">فك الحجب</button>
                                     </form>
-                                    <form method="post" action="{{route('users.destroy',[$user->id])}}">
+
+                                    <form class="deleteForm{{$user->id}}" method="post" action="{{route('users.destroy',[$user->id])}}">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <button type="button" onclick="confirmDeleted({{$user->id}})" class="btn btn-danger">حذف</button>
                                     </form>
                                 </td>
 
@@ -106,6 +107,33 @@
     </div>
 @endsection
 @push('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        function confirmDeleted(id){
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'هل أنت متأكد!',
+                text: "لن تتمكن من الرجوع عن هذه الخطوة",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '  نعم, احذف الآن  ',
+                cancelButtonText: '  لا, إلغاء!  ',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('.deleteForm'+id).submit();
+                }
+            })
+        }
+    </script>
     <script src="{{asset('/plugins/datatables/jquery.dataTables.js')}}"></script>
     <script src="{{asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
     <script>

@@ -28,7 +28,6 @@
                     </p>
                 </a>
             </li>
-
             <li class="nav-header">المستخدمين</li>
             <li class="nav-item">
                 <a href="{{route('users.index')}}" class="nav-link {{\Request::route()->getName() == 'users.index'?'active':''}}">
@@ -42,7 +41,15 @@
                     <p>المستخدمين المحظورين</p>
                 </a>
             </li>
-
+            <li class="nav-header"></li>
+            <li class="nav-item">
+                <a href="{{route('articles.index')}}" class="nav-link {{\Request::route()->getName() == 'articles.index'?'active':''}}">
+                    <i class="fas fa-newspaper"></i>
+                    <p>
+                        المقالات
+                    </p>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

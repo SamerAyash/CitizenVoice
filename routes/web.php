@@ -24,8 +24,8 @@ Route::delete('/order/{id}', ['as'=>'delete_order','uses'=>'UserController@delet
 Route::post('/order/save', ['as'=>'store_order','uses'=>'UserController@store_order']);
 
 Route::get('/{lang}', 'FrontController@setLocal')->name('setLocal');
-Route::get('/last/news/{city?}', ['as'=>'news','uses'=>'FrontController@news']);
-Route::get('/news/{id}/{slug}', ['as'=>'single_news','uses'=>'FrontController@single_news']);
+Route::get('/last/article/{city?}', ['as'=>'news','uses'=>'FrontController@news']);
+Route::get('/article/{id}/{slug}', ['as'=>'single_news','uses'=>'FrontController@single_news']);
 Route::get('/interesting/sites', ['as'=>'interesting_sites','uses'=>'FrontController@interesting_sites']);
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -43,6 +43,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         /// First admin word means middleware class and second admin word means guard type
         Route::view('/dashboard', 'admin.dashboard')->name('admin.home');
         Route::resource('/users','UserController');
+        Route::resource('/articles','ArticleController');
         Route::put('/users/block/{id}',['as'=>'users.block','uses'=>'UserController@block']);
         Route::put('/users/unblock/{id}',['as'=>'users.unblock','uses'=>'UserController@unblock']);
         Route::get('blocked/users',['as'=>'blockedUsers','uses'=>'UserController@blockedUsers']);
