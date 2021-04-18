@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -89,6 +90,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user= User::withTrashed()->whereId($id)->first();
+        if (Storage::disk('public')->exists($user->image)){
+            Storage::disk('public')->delete($user->image);
+        }
         $user->forceDelete();
         return redirect()->back()->with(['success'=>'تم حذف المستخدم بشكل نهائي']);
     }

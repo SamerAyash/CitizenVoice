@@ -28,6 +28,22 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('supervisors.index')}}" class="nav-link {{\Request::route()->getName() == 'supervisors.index'?'active':''}}">
+                    <i class="fas fa-users-cog"></i>
+                    <p>
+                        المشرفين
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('articles.index')}}" class="nav-link {{\Request::route()->getName() == 'articles.index'?'active':''}}">
+                    <i class="fas fa-newspaper"></i>
+                    <p>
+                        المقالات
+                    </p>
+                </a>
+            </li>
             <li class="nav-header">المستخدمين</li>
             <li class="nav-item">
                 <a href="{{route('users.index')}}" class="nav-link {{\Request::route()->getName() == 'users.index'?'active':''}}">
@@ -41,15 +57,40 @@
                     <p>المستخدمين المحظورين</p>
                 </a>
             </li>
-            <li class="nav-header"></li>
+            <li class="nav-header">الطلبات</li>
             <li class="nav-item">
-                <a href="{{route('articles.index')}}" class="nav-link {{\Request::route()->getName() == 'articles.index'?'active':''}}">
-                    <i class="fas fa-newspaper"></i>
-                    <p>
-                        المقالات
-                    </p>
+                <a href="{{route('orders.index')}}" class="nav-link d-flex align-items-start {{\Request::route()->getName() == 'orders.index' ?'active':''}}">
+                   <?php $count= \App\Order::where('status_id',1)->count();?>
+                       @if($count)
+                           <span class="badge badge-warning">
+                               <i class="fas fa-users"></i>
+                            {{$count}}
+                        </span>
+                       @else
+                           <i class="fas fa-users"></i>
+                       @endif
+                    <p class="mx-1"> طلبات قيد الانتظار </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('orders.acceptedOrder')}}" class="nav-link {{\Request::route()->getName() == 'orders.acceptedOrder'?'active':''}}">
+                    <i class="fas fa-fast-forward"></i>
+                    <p>طلبات قيد الحل</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('orders.refusedOrder')}}" class="nav-link {{\Request::route()->getName() == 'orders.refusedOrder'?'active':''}}">
+                    <i class="fas fa-times-circle"></i>
+                    <p>الطلبات المرفوضة</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('orders.solvedOrder')}}" class="nav-link {{\Request::route()->getName() == 'orders.solvedOrder'?'active':''}}">
+                    <i class="fas fa-check-circle"></i>
+                    <p>الطلبات المحلة/المنتهية</p>
+                </a>
+            </li>
+            <li class="nav-header"></li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -44,6 +44,12 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::view('/dashboard', 'admin.dashboard')->name('admin.home');
         Route::resource('/users','UserController');
         Route::resource('/articles','ArticleController');
+        Route::resource('/supervisors','SupervisorController');
+        Route::get('/orders/accepted',['as'=>'orders.acceptedOrder','uses'=>'OrderController@acceptedOrder']);
+        Route::get('/orders/refused',['as'=>'orders.refusedOrder','uses'=>'OrderController@refusedOrder']);
+        Route::get('/orders/solved',['as'=>'orders.solvedOrder','uses'=>'OrderController@solvedOrder']);
+        Route::put('/orders/{id}/solved',['as'=>'orders.solved','uses'=>'OrderController@solvedStatueOrder']);
+        Route::resource('/orders','OrderController');
         Route::put('/users/block/{id}',['as'=>'users.block','uses'=>'UserController@block']);
         Route::put('/users/unblock/{id}',['as'=>'users.unblock','uses'=>'UserController@unblock']);
         Route::get('blocked/users',['as'=>'blockedUsers','uses'=>'UserController@blockedUsers']);

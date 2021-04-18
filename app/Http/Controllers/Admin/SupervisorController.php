@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class SupervisorController extends Controller
 {
+    protected $path= 'admin.supervisor';
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $supervisors= Admin::where('type',2)->get();
+        return view($this->path.'.supervisors',compact('supervisors'));
     }
 
     /**
@@ -41,10 +44,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($id)
     {
         //
     }
@@ -52,10 +55,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +67,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,11 +78,13 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
-        //
+        $supervisor= Admin::withTrashed()->where('type',2)->whereId($id)->first();
+        $supervisor->forceDelete();
+        return redirect()->back()->with(['success'=>'تم حذف المشرف بشكل نهائي']);
     }
 }
