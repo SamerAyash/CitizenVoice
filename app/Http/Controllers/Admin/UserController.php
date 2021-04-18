@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('superAdmin');
+    }
     /**
      * Display a listing of the resource.
      *

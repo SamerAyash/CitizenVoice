@@ -12,7 +12,10 @@ use Intervention\Image\Facades\Image;
 
 class ArticleController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('superAdmin');
+    }
     protected $path= 'admin.articles';
     /**
      * Display a listing of the resource.

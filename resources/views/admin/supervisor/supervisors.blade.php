@@ -32,6 +32,7 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
+                        <a href="{{route('supervisors.create')}}" class="btn btn-primary">إضافة مشرف جديد</a>
                         <h3 class="card-title">جدول المشرفين</h3>
                     </div>
                     <!-- /.card-header -->
@@ -60,7 +61,20 @@
                                 <td>{{$supervisor->city->name_ar}}</td>
                                 <td>{{$supervisor->created_at->format('d-m-Y')}}</td>
                                 <td class="d-flex">
-                                    <a href="{{route('supervisors.show',[$supervisor->id])}}" class="btn btn-success">عرض</a>
+                                    <a href="{{route('supervisors.edit',[$supervisor->id])}}" class="btn btn-primary">تعديل</a>
+                                @if($blocked_page)
+                                    <form class="block{{$supervisor->id}} mx-1" method="post" action="{{route('supervisors.unblock',[$supervisor->id])}}">
+                                        @csrf
+                                        @method('put')
+                                        <button type="button" onclick="block({{$supervisor->id}})" class="btn btn-warning">فك الحظر</button>
+                                    </form>
+                                    @else
+                                        <form class="block{{$supervisor->id}} mx-1" method="post" action="{{route('supervisors.block',[$supervisor->id])}}">
+                                            @csrf
+                                            @method('put')
+                                            <button type="button" onclick="block({{$supervisor->id}})" class="btn btn-warning">حظر</button>
+                                        </form>
+                                    @endif
                                     <form class="deleteForm{{$supervisor->id}}" method="post" action="{{route('supervisors.destroy',[$supervisor->id])}}">
                                         @csrf
                                         @method('delete')
@@ -104,7 +118,6 @@
                 },
                 buttonsStyling: false
             })
-
             swalWithBootstrapButtons.fire({
                 title: 'هل أنت متأكد!',
                 text: "لن تتمكن من الرجوع عن هذه الخطوة",
@@ -116,6 +129,28 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $('.deleteForm'+id).submit();
+                }
+            })
+        }
+        function block(id){
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'هل أنت متأكد',
+                text: "من تجميد حساب المشرف!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '  نعم, حظر الآن  ',
+                cancelButtonText: '  لا, إلغاء!  ',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('.block'+id).submit();
                 }
             })
         }

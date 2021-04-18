@@ -44,6 +44,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::view('/dashboard', 'admin.dashboard')->name('admin.home');
         Route::resource('/users','UserController');
         Route::resource('/articles','ArticleController');
+        Route::put('/supervisors/block/{id}',['as'=>'supervisors.block','uses'=>'SupervisorController@block']);
+        Route::put('/supervisors/unblock/{id}',['as'=>'supervisors.unblock','uses'=>'SupervisorController@unblock']);
+        Route::get('/blocked/supervisors',['as'=>'supervisors.blockedSupervisor','uses'=>'SupervisorController@blockedSupervisor']);
         Route::resource('/supervisors','SupervisorController');
         Route::get('/orders/accepted',['as'=>'orders.acceptedOrder','uses'=>'OrderController@acceptedOrder']);
         Route::get('/orders/refused',['as'=>'orders.refusedOrder','uses'=>'OrderController@refusedOrder']);

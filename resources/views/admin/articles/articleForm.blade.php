@@ -1,11 +1,6 @@
 @extends('admin.layout.app')
 @push('style')
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{asset('/plugins/summernote/summernote-bs4.css')}}">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 @endpush
 @section('content')
 
@@ -59,7 +54,7 @@
                                 </div>
                                 <div class="mb-3 form-group">
                                     <label for="desc">الوصف</label>
-                                    <textarea class="textarea" placeholder="Place some text here" id="desc" name="desc"
+                                    <textarea  id="desc" name="desc"
                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                                     {{$article->description}}
                                 </textarea>
@@ -97,10 +92,10 @@
                                 </div>
                                 <div class="mb-3 form-group">
                                     <label for="desc">الوصف</label>
-                                    <textarea class="textarea" placeholder="Place some text here" id="desc" name="desc"
+                                    <textarea  id="desc" name="desc"
                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                                     {{old('desc')}}
-                                </textarea>
+                                    </textarea>
                                 </div>
                                 <div class="form-group col-3">
                                     <label>المحافظة</label>
@@ -126,19 +121,11 @@
     </div>
 @endsection
 @push('js')
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('/dist/js/demo.js')}}"></script>
-    <!-- Summernote -->
-    <script src="{{asset('/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
-        $(function () {
-            // Summernote
-            $('.textarea').summernote()
-        })
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace( 'desc' );
     </script>
-
     <script>
         var loadFile = function(event) {
             var image = document.getElementById('output');

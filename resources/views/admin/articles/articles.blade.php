@@ -55,7 +55,7 @@
                                         {{\Illuminate\Support\Str::limit($article->title,50)}}
                                     </td>
                                     <td>{{\Illuminate\Support\Str::limit($article->description,50)}}</td>
-                                    <td>{{$article->admin->name}}</td>
+                                    <td>{{$article->admin?$article->admin->name:''}}</td>
                                     <td>{{$article->city->name_ar}}</td>
                                     <td >{{$article->created_at->format('d-m-Y')}}</td>
                                     <td >{{$article->updated_at->format('d-m-Y')}}</td>
