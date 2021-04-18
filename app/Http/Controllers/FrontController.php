@@ -38,7 +38,8 @@ class FrontController extends Controller
     public function single_news($id,$slug) {
 
         $post= News::whereId($id)->first();
-        $more_post= News::whereDate('created_at','>',Carbon::today()->subWeek())->inRandomOrder('created_at')->take(4)->get();
+        $more_post= News::whereDate('created_at','>',Carbon::today()->subWeek())
+            ->inRandomOrder('created_at')->where('id','!=',$id)->take(3)->get();
         return view('frontEnd.single_news',compact('post','more_post'));
     }
 
