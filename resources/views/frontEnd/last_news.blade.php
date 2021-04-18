@@ -23,7 +23,7 @@
                     @foreach($posts as $post)
                     <div class="col-md-3 px-3 my-3 wow bounceInDown" style="visibility: visible; animation-delay: 0.2s; animation-name: bounceInDown;">
                         <div class="img">
-                            <img src="{{asset($post->image)}}" class="w-100 h-100">
+                            <img src="{{asset($post->image_url)}}" class="w-100 h-100">
                         </div>
                         <div class="card-body px-0 pt-1 {{app()->getLocale() == 'ar'?'text-right':''}}">
                             <h5 class="card-title font-weight-bold title-new mb-1">
@@ -56,7 +56,7 @@
     <script>
         function select_area(el){
             var city= $(el).val();
-            window.location.href= '/last/news/'+city;
+            window.location.href= '/last/article/'+city;
         }
     </script>
 @endpush

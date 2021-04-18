@@ -64,7 +64,7 @@
                         <div class="row mb-2">
                             <div class="col-4 d-flex justify-content-start">
                                 <h6 class="mx-1">المستخدم: </h6>
-                                <p> {{'U-'.str_pad($order->user_id,3,'0',STR_PAD_LEFT)}}</p>
+                                <p> {{auth('admin')->user()->type== 1 ? $order->user->name:'U-'.str_pad($order->user_id,3,'0',STR_PAD_LEFT)}}</p>
                             </div>
                             <div class="col-4 d-flex justify-content-start">
                                 <h6 class="mx-1">المحافظة: </h6>
