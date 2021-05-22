@@ -16,7 +16,7 @@
                                 <p class="mx-1 small border-left px-1">{{app()->getLocale()== 'ar'?$post->city->name_ar:$post->city->name_en}}</p>
                             </div>
                         </div>
-                        <img src="{{asset('/storage/images/'.$post->image)}}" class="card-img-top" alt="...">
+                        <img src="{{$post->image_url}}" class="card-img-top" alt="...">
                         <div class="card-body px-0">
                             <p class="card-text contentsignlenew">{!! $post->description !!}</p>
 <!--                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->

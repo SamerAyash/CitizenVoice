@@ -58,7 +58,7 @@ class SupervisorController extends Controller
         $city_ids= City::all()->pluck('id');
 
         $this->validate($request,[
-            'password'=>['required','min:8','regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'],
+            'password'=>['required','min:8'],
             'name' => ['required', 'string', 'max:255'],
             'phone'=>'required|numeric|digits:10|regex:/(05[96])[0-9]/|unique:admins,phone',
             'city'=>['required', Rule::in($city_ids),],
