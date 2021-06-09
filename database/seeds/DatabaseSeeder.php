@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use \App\User;
+use \Illuminate\Support\Facades\Storage;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        if(!File::exists(public_path() . '/storage/images')){
+            File::makeDirectory(public_path() . '/storage/images',0755,true);
+        }
+        if(!File::exists(public_path() . '/storage/files')){
+            File::makeDirectory(public_path() . '/storage/files',0755,true);
+        }
+        if(!File::exists(public_path() . '/storage/profiles')){
+            File::makeDirectory(public_path() . '/storage/profiles',0755,true);
+        }
+
         $this->call([CitySeeder::class,CategorySeeder::class,OrderStatusSeeder::class,AdminSeeder::class]);
 
         User::create([

@@ -62,6 +62,9 @@ class ArticleController extends Controller
             $extension = $file->getClientOriginalExtension();
             $directory = '/images/';
             $filename = sha1(time().rand()).".{$extension}";
+            if(!File::exists(public_path() . '/storage/images')){
+                File::makeDirectory(public_path() . '/storage/images',0755,true);
+            }
             \Image::make($file)->save(Storage::disk('public')->path($directory).$filename);
 
         }
@@ -127,6 +130,9 @@ class ArticleController extends Controller
             $extension = $file->getClientOriginalExtension();
             $directory = '/images/';
             $filename = sha1(time().rand()).".{$extension}";
+            if(!File::exists(public_path() . '/storage/images')){
+                File::makeDirectory(public_path() . '/storage/images',0755,true);
+            }
             \Image::make($file)->save(Storage::disk('public')->path($directory).$filename);
 
         }

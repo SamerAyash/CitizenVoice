@@ -52,6 +52,9 @@ class UserController extends Controller
 
             $uploadedFile = $request->file('file');
             $filename = time().$uploadedFile->getClientOriginalName();
+            if(!File::exists(public_path() . '/storage/files')){
+                File::makeDirectory(public_path() . '/storage/files',0755,true);
+            }
             Storage::disk('public')->putFileAs(
                 'files/',
                 $uploadedFile,
@@ -169,6 +172,9 @@ class UserController extends Controller
             }
             $uploadedFile = $request->file('file');
             $filename = time().$uploadedFile->getClientOriginalName();
+            if(!File::exists(public_path() . '/storage/profiles')){
+                File::makeDirectory(public_path() . '/storage/profiles',0755,true);
+            }
             Storage::disk('public')->putFileAs(
                 'profiles/',
                 $uploadedFile,
